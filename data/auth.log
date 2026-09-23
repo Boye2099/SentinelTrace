@@ -1,1 +1,13 @@
+Sep 23 08:01 FAILED user=admin ip=192.168.1.50
+Sep 23 08:02 FAILED user=admin ip=192.168.1.50
+Sep 23 08:03 FAILED user=admin ip=192.168.1.50
+Sep 23 08:04 FAILED user=admin ip=192.168.1.50
+Sep 23 08:05 FAILED user=admin ip=192.168.1.50
+Sep 23 08:06 FAILED user=admin ip=192.168.1.50
+Sep 23 08:07 SUCCESS user=admin ip=192.168.1.50
 
+Sep 23 09:10 SUCCESS user=john ip=192.168.1.20
+
+Sep 23 09:15 FAILED user=mary ip=10.0.0.15
+Sep 23 09:16 FAILED user=mary ip=10.0.0.15
+Sep 23 09:17 SUCCESS user=mary ip=10.0.0.15
