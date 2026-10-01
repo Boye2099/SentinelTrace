@@ -8,7 +8,7 @@ from .models import Finding, LogEvent
 
 class SecurityAnalyzer:
     """
-    Coordinates SentinelTrace detection rules.
+    Coordinates all SentinelTrace detection rules.
     """
 
     def __init__(
@@ -16,12 +16,12 @@ class SecurityAnalyzer:
         brute_force_threshold: int = 10,
         password_spray_threshold: int = 5,
         account_takeover_threshold: int = 5,
-        window_seconds: int = 300,
+        window_minutes: int = 5,
     ):
         self.brute_force_threshold = brute_force_threshold
         self.password_spray_threshold = password_spray_threshold
         self.account_takeover_threshold = account_takeover_threshold
-        self.window_seconds = window_seconds
+        self.window_minutes = window_minutes
 
     def analyze(self, events: list[LogEvent]) -> list[Finding]:
         """
@@ -34,7 +34,7 @@ class SecurityAnalyzer:
             detect_brute_force(
                 events,
                 threshold=self.brute_force_threshold,
-                window_seconds=self.window_seconds,
+                window_minutes=self.window_minutes,
             )
         )
 
@@ -42,7 +42,7 @@ class SecurityAnalyzer:
             detect_password_spray(
                 events,
                 threshold=self.password_spray_threshold,
-                window_seconds=self.window_seconds,
+                window_minutes=self.window_minutes,
             )
         )
 
@@ -50,7 +50,7 @@ class SecurityAnalyzer:
             detect_account_takeover(
                 events,
                 failure_threshold=self.account_takeover_threshold,
-                window_seconds=self.window_seconds,
+                window_minutes=self.window_minutes,
             )
         )
 
